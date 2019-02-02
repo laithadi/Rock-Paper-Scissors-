@@ -1,6 +1,28 @@
-print('Hello')
-x=0
-while x != 10:
-    print(x)
-    x+=1
+from tkinter import *
 
+#create a window 
+mainW = Tk()
+
+#intrustions of the game 
+instructions = Label(mainW, text= 'In each respective box, enter Rock, Paper, or Scissors.')
+
+#labaling where each user should input their decision 
+player1 = Label(mainW, text= 'Player one:')
+player2 = Label(mainW, text= 'Player two:')
+
+#entry boxes for players to enter their desion
+player1_entry = Entry(mainW)
+player2_entry = Entry(mainW)
+
+#buttons to submit decisions 
+submit = Button(mainW, text='Submit!')
+
+#where the widgets are located
+player1.grid(row=1)
+player2.grid(row=2)
+player1_entry.grid(row=1, column=1)
+player2_entry.grid(row=2, column=1)
+submit.grid(row=5, columnspan=2)
+instructions.grid(row=0, columnspan= 3)
+
+mainW.mainloop()
