@@ -1,5 +1,28 @@
 from tkinter import *
 
+def game1(event):
+    if player1_entry == 'Rock':
+        if player2_entry == 'Rock':
+            print('It is a tie!')
+        elif player2_entry == 'Paper':
+            print('Player two wins!')
+        else:
+            print('Player one wins!')
+    elif player1_entry == 'Paper':
+        if player2_entry == 'Rock':
+            print('Player one wins!')
+        elif player2_entry == 'Paper':
+            print('It is a tie!')
+        else:
+            print('Player two wins!')
+    else:
+        if player2_entry == 'Rock':
+            print('Player two wins!')
+        elif player2_entry == 'Paper':
+            print('Player one wins!')
+        else:
+            print('It is a tie!')
+
 #create a window 
 mainW = Tk()
 
@@ -16,6 +39,7 @@ player2_entry = Entry(mainW)
 
 #buttons to submit decisions 
 submit = Button(mainW, text='Submit!')
+submit.bind("<Button>", game1)
 
 #where the widgets are located
 player1.grid(row=1)
