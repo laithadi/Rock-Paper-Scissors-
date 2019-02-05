@@ -1,52 +1,82 @@
 from tkinter import *
+import random 
+#rock = 1 
+#paper = 2
+#scissors = 3 
 
-def game1(event):
-    if player1_entry == 'Rock':
-        if player2_entry == 'Rock':
-            print('It is a tie!')
-        elif player2_entry == 'Paper':
-            print('Player two wins!')
-        else:
-            print('Player one wins!')
-    elif player1_entry == 'Paper':
-        if player2_entry == 'Rock':
-            print('Player one wins!')
-        elif player2_entry == 'Paper':
-            print('It is a tie!')
-        else:
-            print('Player two wins!')
+player1 = 0
+
+def ran_num():
+    #generate a random number for the computers turn 
+    computer = random.randint(1,4)
+    
+    return computer
+
+#rock 
+def rock(event):
+    player1 = 1  
+    #generating a number
+    computer = ran_num()
+    #different scenarios that can play out
+    if computer == 1: 
+        print('It is a tie!')
+    elif computer == 2:
+        print('Paper beats rock, you lose!')
+    else: 
+        print('Rock beats scissors, you win!')
+    
+#paper
+def paper(event):
+    player1 = 2 
+    #generating a number
+    computer = ran_num()
+    #different scenarios that can play out
+    if computer == 1:
+        print('Paper beats rock, you win!')
+    elif computer == 2:
+        print('It is a tie!')
     else:
-        if player2_entry == 'Rock':
-            print('Player two wins!')
-        elif player2_entry == 'Paper':
-            print('Player one wins!')
-        else:
-            print('It is a tie!')
+        print('Scissors beat paper, you lose!')
 
+#scissors
+def scissors(event):
+    player1 = 3 
+    #generating a number
+    computer = ran_num()
+    #different scenarios that can play out
+    if computer == 1:
+        print('Rock beats scissors, you lose!')
+    elif computer == 2:
+        print('Scissors beat paper, you win!')
+    else:
+        print('It is a tie!')
+
+    
 #create a window 
 mainW = Tk()
 
 #intrustions of the game 
-instructions = Label(mainW, text= 'In each respective box, enter Rock, Paper, or Scissors.')
+instructions = Label(mainW, text= 'Choose Rock, Paper, or Scissors.')
 
-#labaling where each user should input their decision 
-player1 = Label(mainW, text= 'Player one:')
-player2 = Label(mainW, text= 'Player two:')
+#buttons for rock 
+rock_button = Button(mainW, text='Rock', bg='Black', fg='black')
+rock_button.bind('<Button-1>', rock)
 
-#entry boxes for players to enter their desion
-player1_entry = Entry(mainW)
-player2_entry = Entry(mainW)
+#button for paper 
+paper_button = Button(mainW, text= 'Paper', bg='Black', fg='black')
+paper_button.bind('<Button-1>', paper)
 
-#buttons to submit decisions 
-submit = Button(mainW, text='Submit!')
-submit.bind("<Button-1>", game1)
+#button for scissors 
+scissors_button = Button(mainW, text='Scissors', bg='Black', fg='black')
+scissors_button.bind('<Button-1>', scissors)
 
-#where the widgets are located
-player1.grid(row=1)
-player2.grid(row=2)
-player1_entry.grid(row=1, column=1)
-player2_entry.grid(row=2, column=1)
-submit.grid(row=5, columnspan=2)
-instructions.grid(row=0, columnspan= 3)
+#location of buttons 
+rock_button.grid(row=0)
+paper_button.grid(row=0, column=2)
+scissors_button.grid(row=0, column=3)
 
+
+
+
+    
 mainW.mainloop()
