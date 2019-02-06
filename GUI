@@ -59,15 +59,15 @@ mainW = Tk()
 instructions = Label(mainW, text= 'Choose Rock, Paper, or Scissors.')
 
 #buttons for rock 
-rock_button = Button(mainW, text='Rock', bg='Black', fg='black')
+rock_button = Button(mainW, text='Rock', fg='blue')
 rock_button.bind('<Button-1>', rock)
 
 #button for paper 
-paper_button = Button(mainW, text= 'Paper', bg='Black', fg='black')
+paper_button = Button(mainW, text= 'Paper', fg='red')
 paper_button.bind('<Button-1>', paper)
 
 #button for scissors 
-scissors_button = Button(mainW, text='Scissors', bg='Black', fg='black')
+scissors_button = Button(mainW, text='Scissors', fg='green')
 scissors_button.bind('<Button-1>', scissors)
 
 #location of buttons 
